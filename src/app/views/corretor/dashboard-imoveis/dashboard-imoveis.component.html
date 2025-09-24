@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h3>Dashboard do Corretor - Meus Imóveis</h3>
+  <button class="btn btn-primary mb-3" (click)="novoImovel()">➕ Novo Imóvel</button>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let imovel of imoveis">
+      <div class="card">
+        <img [src]="imovel.imagemUrl" class="card-img-top" [alt]="imovel.titulo" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ imovel.titulo }}</h5>
+          <p class="card-text">{{ imovel.descricao }}</p>
+          <p><strong>R$ {{ imovel.preco | currency:'BRL':'symbol' }}</strong></p>
+          <button class="btn btn-warning btn-sm me-2" (click)="editarImovel(imovel)">✏️ Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="excluirImovel(imovel.id)">🗑️ Excluir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
