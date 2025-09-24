@@ -83,24 +83,38 @@ classDiagram
 
 -    ## Diagrama de Casos de Uso
 ```mermaid
-usecaseDiagram
-    actor Cliente
-    actor Corretor
+graphTD
+    Cliente((Cliente))
+    Corretor((Corretor))
 
-    Cliente --> (Registrar)
-    Cliente --> (Login)
-    Cliente --> (Buscar Imóvel)
-    Cliente --> (Visualizar Imóvel)
-    Cliente --> (Demonstrar Interesse)
-    Cliente --> (Reservar Imóvel)
-    Cliente --> (Cancelar Reserva)
+    subgraph Casos de Uso
+        UC1(Registrar)
+        UC2(Login)
+        UC3(Buscar Imóvel)
+        UC4(Visualizar Imóvel)
+        UC5(Demonstrar Interesse)
+        UC6(Reservar Imóvel)
+        UC7(Cancelar Reserva)
+        UC8(Acessar Dashboard)
+        UC9(Cadastrar Imóvel)
+        UC10(Editar Imóvel)
+        UC11(Gerenciar Reservas)
+    end
 
-    Corretor --> (Registrar)
-    Corretor --> (Login)
-    Corretor --> (Acessar Dashboard)
-    Corretor --> (Cadastrar Imóvel)
-    Corretor --> (Editar Imóvel)
-    Corretor --> (Gerenciar Reservas)
+    Cliente --> UC1
+    Cliente --> UC2
+    Cliente --> UC3
+    Cliente --> UC4
+    Cliente --> UC5
+    Cliente --> UC6
+    Cliente --> UC7
+
+    Corretor --> UC1
+    Corretor --> UC2
+    Corretor --> UC8
+    Corretor --> UC9
+    Corretor --> UC10
+    Corretor --> UC11
 ```
 
 -   ## Diagramas de Fluxo
