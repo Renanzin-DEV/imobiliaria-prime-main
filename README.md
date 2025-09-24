@@ -83,7 +83,7 @@ classDiagram
 
 -    ## Diagrama de Casos de Uso
 ```mermaid
-graphTD
+graph TD
     Cliente((Cliente))
     Corretor((Corretor))
 
