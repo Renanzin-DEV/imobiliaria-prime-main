@@ -1,64 +1,87 @@
 /* ===== CORES DA MARCA ===== */
-$cor-primaria: #009B77;   // Verde-esmeralda
-$cor-secundaria: #333333; // Cinza-escuro
-$cor-fundo: #ffffff;      // Branco
+$cor-primaria: #009B77;   // ...n
+$cor-secundaria: #073B3A;
+$cor-acento: #FF7A59;
+$cor-fundo: #F5F7FA;
+$texto-escuro: #222;
+$texto-claro: #fff;
 
-/* ===== RESET & GERAL ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ===== TIPOGRAFIA ===== */
+$font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+$base-font-size: 16px;
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* ===== BOTÕES ===== */
-.btn {
-  border-radius: 8px;
-  padding: 0.6rem 1.2rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.btn-primary {
-  background-color: $cor-primaria;
-  border-color: $cor-primaria;
-
-  &:hover {
-    background-color: darken($cor-primaria, 10%);
-    border-color: darken($cor-primaria, 10%);
+/* ===== MIXINS ===== */
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: 640px) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: 768px) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: 1024px) { @content; }
   }
 }
 
-/* ===== LINKS ===== */
-a {
-  text-decoration: none;
+/* ===== RESET / BASE ===== */
+* {
+  box-sizing: border-box;
+}
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: $font-sans;
+  font-size: $base-font-size;
+  background: $cor-fundo;
+  color: $texto-escuro;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-a:hover {
-  text-decoration: none;
-}
-
-/* ===== CONTAINERS ===== */
+/* ===== UTILITÁRIOS ===== */
 .container {
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+
+/* ===== COMPONENTES GLOBAIS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .6rem 1rem;
+  border-radius: .5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: $cor-primaria;
+  color: $texto-claro;
+  transition: transform .12s ease, box-shadow .12s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: .6rem;
+  box-shadow: 0 6px 18px rgba(10,10,10,0.04);
+  padding: 1rem;
 }
 
 /* ===== ANIMAÇÕES ===== */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .fadeInUp {
